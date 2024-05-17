@@ -29,5 +29,4 @@ class BasePage:
         return Wait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
 
     def refresh_page(self):
-        # Обновляем текущую страницу
         self.driver.refresh()
