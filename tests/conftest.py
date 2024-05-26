@@ -13,11 +13,11 @@ def driver():
     options = Options()
     #options.add_argument('--headless')
     driver_service = Service(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=driver_service, options=options)
-    # driver = webdriver.Remote(
-    #     command_executor='http://172.17.0.2:4444/wd/hub',
-    #     options=options
-    # )
+    #driver = webdriver.Chrome(service=driver_service, options=options)
+    driver = webdriver.Remote(
+        command_executor='http://172.17.0.2:4444/wd/hub',
+        options=options
+    )
 
     driver.maximize_window()
     yield driver

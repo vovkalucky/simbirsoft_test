@@ -1,6 +1,7 @@
 import os
 import allure
 
+
 def attach_trans():
     file_path = "/home/vladimir/PycharmProjects/simbirsoft_test/transactions.csv"
     if os.path.exists(file_path):
