@@ -1,6 +1,7 @@
-from selenium.webdriver.common.by import By
+import allure
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver.support import expected_conditions as EC
+
 
 class BasePage:
     def __init__(self, driver, url):
@@ -8,7 +9,8 @@ class BasePage:
         self.url = url
 
     def open(self):
-        self.driver.get(self.url)
+        with allure.step("Open web page"):
+            self.driver.get(self.url)
 
     def element_is_visible(self, locator, timeout=5):
         try:
@@ -29,4 +31,5 @@ class BasePage:
         return Wait(self.driver, timeout).until(EC.presence_of_all_elements_located(locator))
 
     def refresh_page(self):
-        self.driver.refresh()
+        with allure.step("Refresh web page"):
+            self.driver.refresh()
